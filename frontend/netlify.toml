@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "dist/101411341_comp3133_assignment2"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18" 

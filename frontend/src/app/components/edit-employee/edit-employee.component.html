@@ -1,0 +1,92 @@
+<div class="container">
+  <h2>Update Employee</h2>
+  
+  <div class="loading-indicator" *ngIf="isLoading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+  
+  <div class="card" *ngIf="!isLoading && employeeForm">
+    <div class="card-body">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="first_name">First Name</label>
+          <input type="text" class="form-control" id="first_name" formControlName="first_name">
+          <div *ngIf="f.first_name.errors && f.first_name.touched" class="text-danger">
+            <div *ngIf="f.first_name.errors['required']">First name is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="last_name">Last Name</label>
+          <input type="text" class="form-control" id="last_name" formControlName="last_name">
+          <div *ngIf="f.last_name.errors && f.last_name.touched" class="text-danger">
+            <div *ngIf="f.last_name.errors['required']">Last name is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+          <div *ngIf="f.email.errors && f.email.touched" class="text-danger">
+            <div *ngIf="f.email.errors['required']">Email is required</div>
+            <div *ngIf="f.email.errors['email']">Must be a valid email address</div>
+          </div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" formControlName="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="designation">Designation</label>
+          <input type="text" class="form-control" id="designation" formControlName="designation">
+          <div *ngIf="f.designation.errors && f.designation.touched" class="text-danger">
+            <div *ngIf="f.designation.errors['required']">Designation is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="department">Department</label>
+          <input type="text" class="form-control" id="department" formControlName="department">
+          <div *ngIf="f.department.errors && f.department.touched" class="text-danger">
+            <div *ngIf="f.department.errors['required']">Department is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="salary">Salary</label>
+          <input type="number" class="form-control" id="salary" formControlName="salary">
+          <div *ngIf="f.salary.errors && f.salary.touched" class="text-danger">
+            <div *ngIf="f.salary.errors['required']">Salary is required</div>
+            <div *ngIf="f.salary.errors['min']">Salary must be greater than 0</div>
+          </div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="date_of_joining">Date of Joining</label>
+          <input type="date" class="form-control" id="date_of_joining" formControlName="date_of_joining">
+          <div *ngIf="f.date_of_joining.errors && f.date_of_joining.touched" class="text-danger">
+            <div *ngIf="f.date_of_joining.errors['required']">Date of joining is required</div>
+          </div>
+        </div>
+        
+        <div class="mt-3">
+          <button type="submit" class="btn btn-success" [disabled]="employeeForm.invalid || isSubmitting">
+            <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
+            Update
+          </button>
+          <button type="button" class="btn btn-secondary ms-2" routerLink="/employees">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div *ngIf="!isLoading && !employeeForm" class="alert alert-danger">
+    Employee not found.
+  </div>
+</div> 

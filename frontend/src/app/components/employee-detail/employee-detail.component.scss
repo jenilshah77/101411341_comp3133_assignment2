@@ -1,0 +1,21 @@
+.card {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.employee-details {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.employee-details p {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #efefef;
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+} 

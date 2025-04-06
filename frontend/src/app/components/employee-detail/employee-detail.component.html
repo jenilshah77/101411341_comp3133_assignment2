@@ -1,0 +1,44 @@
+<div class="employee-detail-container">
+  <div *ngIf="isLoading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+    <p>Loading employee details...</p>
+  </div>
+
+  <div *ngIf="!isLoading && !employee" class="error-message">
+    <mat-icon>error</mat-icon>
+    <p>Employee not found</p>
+  </div>
+
+  <div *ngIf="!isLoading && employee" class="employee-info">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Employee Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="info-row">
+          <strong>First Name:</strong>
+          <span>{{employee.firstname}}</span>
+        </div>
+        <div class="info-row">
+          <strong>Last Name:</strong>
+          <span>{{employee.lastname}}</span>
+        </div>
+        <div class="info-row">
+          <strong>Email:</strong>
+          <span>{{employee.email}}</span>
+        </div>
+        <div class="info-row">
+          <strong>Gender:</strong>
+          <span>{{employee.gender}}</span>
+        </div>
+        <div class="info-row">
+          <strong>Salary:</strong>
+          <span>{{employee.salary | currency}}</span>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goBack()">Back to List</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div> 

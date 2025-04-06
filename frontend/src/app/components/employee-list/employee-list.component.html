@@ -1,0 +1,51 @@
+<div class="container">
+  <h2>Employee List</h2>
+  
+  <div class="row mb-3">
+    <div class="col-md-12 text-end">
+      <button class="btn btn-primary" routerLink="/employees/add">Add Employee</button>
+    </div>
+  </div>
+
+  <div class="loading-indicator" *ngIf="isLoading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <div class="card" *ngIf="!isLoading">
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of filteredEmployees">
+            <td>{{employee.id}}</td>
+            <td>{{employee.first_name}}</td>
+            <td>{{employee.last_name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.department}}</td>
+            <td>{{employee.designation}}</td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-primary btn-sm" [routerLink]="['/employees', employee.id]">View</button>
+                <button class="btn btn-danger btn-sm" *ngIf="employee.id" (click)="deleteEmployee(employee.id)">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div *ngIf="filteredEmployees.length === 0" class="no-results">
+        No employees found.
+      </div>
+    </div>
+  </div>
+</div>

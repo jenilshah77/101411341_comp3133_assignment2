@@ -1,0 +1,73 @@
+.employee-detail-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.loading-spinner p {
+  margin-top: 16px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #f44336;
+}
+
+.error-message mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+}
+
+.employee-info {
+  margin-top: 20px;
+}
+
+.info-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row strong {
+  flex: 0 0 150px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.info-row span {
+  flex: 1;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+mat-card-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-card-title {
+  margin-bottom: 24px !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+mat-card-content {
+  padding: 0 16px;
+} 
